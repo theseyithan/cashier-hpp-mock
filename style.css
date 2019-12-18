@@ -1,0 +1,22 @@
+.container {
+  font-family: Sans-Serif;
+}
+
+.button {
+  display: block;
+  margin-bottom: 10px;
+  text-align: center;
+
+  text-decoration: none;
+  color: white;
+
+  padding: 10px;
+}
+
+.green {
+  background-color: #44bd32;
+}
+
+.red {
+  background-color: #e84118;
+}
