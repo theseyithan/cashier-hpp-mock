@@ -38,10 +38,15 @@ function _redirectToPayLah() {
   window.location = url
 }
 
-function redirectToPandora() {
+function redirectToPandora(_result) {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
   const delay = urlParams.get('delay');
+
+  var result = _result;
+  if (!result) {
+    result = urlParams.get('result');
+  }
 
   var time = 0;
   if (delay == "1") {
@@ -49,14 +54,13 @@ function redirectToPandora() {
   }
 
   setTimeout(() => {
-    _redirectToPandora();
+    _redirectToPandora(result);
   }, time);
 }
 
-function _redirectToPandora() {
+function _redirectToPandora(result) {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
-  const result = urlParams.get('result');
 
   var url = `https://www-st.foodpanda.pk/payment-gateway/mobile-payment?paymentResult=${result}`
   console.log(url);
