@@ -76,7 +76,12 @@ function _redirectToPandora(result) {
     redirectHost = "www-st.foodpanda.pk"
   }
 
-  var url = `https://${redirectHost}/payment-gateway/mobile-payment?paymentResult=${result}`
+  var redirectScheme = urlParams.get('redirectScheme');
+  if (!redirectScheme) {
+    redirectScheme = "https"
+  }
+
+  var url = `${redirectScheme}://${redirectHost}/payment-gateway/mobile-payment?paymentResult=${result}`
   console.log(url);
 
   window.location = url
