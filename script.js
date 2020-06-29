@@ -38,6 +38,16 @@ function _redirectToPayLah() {
   window.location = url
 }
 
+function redirectOnLoad() {
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  const noAutoRedirect = urlParams.get('noAutoRedirect');
+
+  if (!noAutoRedirect) {
+    redirectToPandora();
+  }
+}
+
 function redirectToPandora(_result) {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
